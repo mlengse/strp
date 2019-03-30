@@ -1,0 +1,25 @@
+{
+  "connection": "default",
+  "collectionName": "counter",
+  "info": {
+    "name": "counter",
+    "description": ""
+  },
+  "options": {
+    "timestamps": true
+  },
+  "attributes": {
+    "jumlah": {
+      "default": "",
+      "type": "decimal"
+    },
+    "waktu": {
+      "default": "",
+      "type": "date"
+    },
+    "countername": {
+      "model": "countername",
+      "via": "counters"
+    }
+  }
+}

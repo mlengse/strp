@@ -1,0 +1,25 @@
+{
+  "connection": "default",
+  "collectionName": "",
+  "info": {
+    "name": "satuan",
+    "description": ""
+  },
+  "options": {
+    "timestamps": true
+  },
+  "attributes": {
+    "name": {
+      "default": "",
+      "type": "string"
+    },
+    "indicators": {
+      "collection": "indicator",
+      "via": "satuan"
+    },
+    "counternames": {
+      "collection": "countername",
+      "via": "satuan"
+    }
+  }
+}

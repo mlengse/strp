@@ -1,0 +1,29 @@
+{
+  "connection": "default",
+  "collectionName": "",
+  "info": {
+    "name": "rekap",
+    "description": ""
+  },
+  "options": {
+    "timestamps": true
+  },
+  "attributes": {
+    "jumlah": {
+      "default": "",
+      "type": "decimal"
+    },
+    "periode": {
+      "default": "",
+      "type": "string"
+    },
+    "rekaptype": {
+      "model": "rekaptype",
+      "via": "rekaps"
+    },
+    "indicator": {
+      "model": "indicator",
+      "via": "rekaps"
+    }
+  }
+}

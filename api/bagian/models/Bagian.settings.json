@@ -1,0 +1,30 @@
+{
+  "connection": "default",
+  "collectionName": "bagian",
+  "info": {
+    "name": "bagian",
+    "description": ""
+  },
+  "options": {
+    "timestamps": true
+  },
+  "attributes": {
+    "nama": {
+      "default": "",
+      "type": "string"
+    },
+    "indicators": {
+      "collection": "indicator",
+      "via": "bagian"
+    },
+    "subordinat": {
+      "collection": "bagian",
+      "via": "superordinat",
+      "dominant": true
+    },
+    "superordinat": {
+      "collection": "bagian",
+      "via": "subordinat"
+    }
+  }
+}

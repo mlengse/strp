@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/counters",
+      "handler": "Counter.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/counters/count",
+      "handler": "Counter.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/counters/:_id",
+      "handler": "Counter.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/counters",
+      "handler": "Counter.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/counters/:_id",
+      "handler": "Counter.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/counters/:_id",
+      "handler": "Counter.destroy",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/satuans",
+      "handler": "Satuan.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/satuans/count",
+      "handler": "Satuan.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/satuans/:_id",
+      "handler": "Satuan.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/satuans",
+      "handler": "Satuan.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/satuans/:_id",
+      "handler": "Satuan.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/satuans/:_id",
+      "handler": "Satuan.destroy",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

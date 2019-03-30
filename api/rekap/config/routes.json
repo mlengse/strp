@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/rekaps",
+      "handler": "Rekap.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/rekaps/count",
+      "handler": "Rekap.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/rekaps/:_id",
+      "handler": "Rekap.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/rekaps",
+      "handler": "Rekap.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/rekaps/:_id",
+      "handler": "Rekap.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/rekaps/:_id",
+      "handler": "Rekap.destroy",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "defaultConnection": "default",
+  "connections": {
+    "default": {
+      "connector": "strapi-hook-mongoose",
+      "settings": {
+        "client": "mongo",
+        "host": "ds161024.mlab.com",
+        "srv": false,
+        "port": 61024,
+        "database": "sibela",
+        "username": "anjang",
+        "password": "ikruIKRU123"
+      },
+      "options": {
+        "authenticationDatabase": "sibela",
+        "ssl": false
+      }
+    }
+  }
+}

@@ -1,0 +1,1465 @@
+type Bagian {
+  _id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  nama: String
+  indicators(sort: String, limit: Int, start: Int, where: JSON): [Indicator]
+  subordinat(sort: String, limit: Int, start: Int, where: JSON): [Bagian]
+  superordinat(sort: String, limit: Int, start: Int, where: JSON): [Bagian]
+}
+
+type BagianAggregator {
+  count: Int
+}
+
+type BagianConnection {
+  values: [Bagian]
+  groupBy: BagianGroupBy
+  aggregate: BagianAggregator
+}
+
+type BagianConnection_id {
+  key: ID
+  connection: BagianConnection
+}
+
+type BagianConnectionCreatedAt {
+  key: DateTime
+  connection: BagianConnection
+}
+
+type BagianConnectionNama {
+  key: String
+  connection: BagianConnection
+}
+
+type BagianConnectionUpdatedAt {
+  key: DateTime
+  connection: BagianConnection
+}
+
+type BagianGroupBy {
+  _id: [BagianConnection_id]
+  createdAt: [BagianConnectionCreatedAt]
+  updatedAt: [BagianConnectionUpdatedAt]
+  nama: [BagianConnectionNama]
+}
+
+input BagianInput {
+  nama: String
+  indicators: [ID]
+  subordinat: [ID]
+  superordinat: [ID]
+}
+
+type Counter {
+  _id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  jumlah: Float
+  waktu: DateTime
+  countername: Countername
+}
+
+type CounterAggregator {
+  count: Int
+  sum: CounterAggregatorSum
+  avg: CounterAggregatorAvg
+  min: CounterAggregatorMin
+  max: CounterAggregatorMax
+}
+
+type CounterAggregatorAvg {
+  jumlah: Float
+}
+
+type CounterAggregatorMax {
+  jumlah: Float
+}
+
+type CounterAggregatorMin {
+  jumlah: Float
+}
+
+type CounterAggregatorSum {
+  jumlah: Float
+}
+
+type CounterConnection {
+  values: [Counter]
+  groupBy: CounterGroupBy
+  aggregate: CounterAggregator
+}
+
+type CounterConnection_id {
+  key: ID
+  connection: CounterConnection
+}
+
+type CounterConnectionCountername {
+  key: ID
+  connection: CounterConnection
+}
+
+type CounterConnectionCreatedAt {
+  key: DateTime
+  connection: CounterConnection
+}
+
+type CounterConnectionJumlah {
+  key: Float
+  connection: CounterConnection
+}
+
+type CounterConnectionUpdatedAt {
+  key: DateTime
+  connection: CounterConnection
+}
+
+type CounterConnectionWaktu {
+  key: DateTime
+  connection: CounterConnection
+}
+
+type CounterGroupBy {
+  _id: [CounterConnection_id]
+  createdAt: [CounterConnectionCreatedAt]
+  updatedAt: [CounterConnectionUpdatedAt]
+  jumlah: [CounterConnectionJumlah]
+  waktu: [CounterConnectionWaktu]
+  countername: [CounterConnectionCountername]
+}
+
+input CounterInput {
+  jumlah: Float
+  waktu: DateTime
+  countername: ID
+}
+
+type Countername {
+  _id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  name: String
+  countertype: Countertype
+  indicator: Indicator
+  satuan: Satuan
+  counters(sort: String, limit: Int, start: Int, where: JSON): [Counter]
+}
+
+type CounternameAggregator {
+  count: Int
+}
+
+type CounternameConnection {
+  values: [Countername]
+  groupBy: CounternameGroupBy
+  aggregate: CounternameAggregator
+}
+
+type CounternameConnection_id {
+  key: ID
+  connection: CounternameConnection
+}
+
+type CounternameConnectionCountertype {
+  key: ID
+  connection: CounternameConnection
+}
+
+type CounternameConnectionCreatedAt {
+  key: DateTime
+  connection: CounternameConnection
+}
+
+type CounternameConnectionIndicator {
+  key: ID
+  connection: CounternameConnection
+}
+
+type CounternameConnectionName {
+  key: String
+  connection: CounternameConnection
+}
+
+type CounternameConnectionSatuan {
+  key: ID
+  connection: CounternameConnection
+}
+
+type CounternameConnectionUpdatedAt {
+  key: DateTime
+  connection: CounternameConnection
+}
+
+type CounternameGroupBy {
+  _id: [CounternameConnection_id]
+  createdAt: [CounternameConnectionCreatedAt]
+  updatedAt: [CounternameConnectionUpdatedAt]
+  name: [CounternameConnectionName]
+  countertype: [CounternameConnectionCountertype]
+  indicator: [CounternameConnectionIndicator]
+  satuan: [CounternameConnectionSatuan]
+}
+
+input CounternameInput {
+  name: String
+  countertype: ID
+  indicator: ID
+  counters: [ID]
+  satuan: ID
+}
+
+type Countertype {
+  _id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  name: String
+  counternames(sort: String, limit: Int, start: Int, where: JSON): [Countername]
+}
+
+type CountertypeAggregator {
+  count: Int
+}
+
+type CountertypeConnection {
+  values: [Countertype]
+  groupBy: CountertypeGroupBy
+  aggregate: CountertypeAggregator
+}
+
+type CountertypeConnection_id {
+  key: ID
+  connection: CountertypeConnection
+}
+
+type CountertypeConnectionCreatedAt {
+  key: DateTime
+  connection: CountertypeConnection
+}
+
+type CountertypeConnectionName {
+  key: String
+  connection: CountertypeConnection
+}
+
+type CountertypeConnectionUpdatedAt {
+  key: DateTime
+  connection: CountertypeConnection
+}
+
+type CountertypeGroupBy {
+  _id: [CountertypeConnection_id]
+  createdAt: [CountertypeConnectionCreatedAt]
+  updatedAt: [CountertypeConnectionUpdatedAt]
+  name: [CountertypeConnectionName]
+}
+
+input CountertypeInput {
+  name: String
+  counternames: [ID]
+}
+
+input createBagianInput {
+  data: BagianInput
+}
+
+type createBagianPayload {
+  bagian: Bagian
+}
+
+input createCounterInput {
+  data: CounterInput
+}
+
+input createCounternameInput {
+  data: CounternameInput
+}
+
+type createCounternamePayload {
+  countername: Countername
+}
+
+type createCounterPayload {
+  counter: Counter
+}
+
+input createCountertypeInput {
+  data: CountertypeInput
+}
+
+type createCountertypePayload {
+  countertype: Countertype
+}
+
+input createIndicatorInput {
+  data: IndicatorInput
+}
+
+type createIndicatorPayload {
+  indicator: Indicator
+}
+
+input createMenuInput {
+  data: MenuInput
+}
+
+type createMenuPayload {
+  menu: Menu
+}
+
+input createOperatorInput {
+  data: OperatorInput
+}
+
+type createOperatorPayload {
+  operator: Operator
+}
+
+input createRekapInput {
+  data: RekapInput
+}
+
+type createRekapPayload {
+  rekap: Rekap
+}
+
+input createRekaptypeInput {
+  data: RekaptypeInput
+}
+
+type createRekaptypePayload {
+  rekaptype: Rekaptype
+}
+
+input createRoleInput {
+  data: RoleInput
+}
+
+type createRolePayload {
+  role: UsersPermissionsRole
+}
+
+input createSatuanInput {
+  data: SatuanInput
+}
+
+type createSatuanPayload {
+  satuan: Satuan
+}
+
+input createStateInput {
+  data: StateInput
+}
+
+type createStatePayload {
+  state: State
+}
+
+input createUserInput {
+  data: UserInput
+}
+
+type createUserPayload {
+  user: UsersPermissionsUser
+}
+
+"""
+The `DateTime` scalar represents a date and time following the ISO 8601 standard
+"""
+scalar DateTime
+
+input deleteBagianInput {
+  where: InputID
+}
+
+type deleteBagianPayload {
+  bagian: Bagian
+}
+
+input deleteCounterInput {
+  where: InputID
+}
+
+input deleteCounternameInput {
+  where: InputID
+}
+
+type deleteCounternamePayload {
+  countername: Countername
+}
+
+type deleteCounterPayload {
+  counter: Counter
+}
+
+input deleteCountertypeInput {
+  where: InputID
+}
+
+type deleteCountertypePayload {
+  countertype: Countertype
+}
+
+input deleteIndicatorInput {
+  where: InputID
+}
+
+type deleteIndicatorPayload {
+  indicator: Indicator
+}
+
+input deleteMenuInput {
+  where: InputID
+}
+
+type deleteMenuPayload {
+  menu: Menu
+}
+
+input deleteOperatorInput {
+  where: InputID
+}
+
+type deleteOperatorPayload {
+  operator: Operator
+}
+
+input deleteRekapInput {
+  where: InputID
+}
+
+type deleteRekapPayload {
+  rekap: Rekap
+}
+
+input deleteRekaptypeInput {
+  where: InputID
+}
+
+type deleteRekaptypePayload {
+  rekaptype: Rekaptype
+}
+
+input deleteRoleInput {
+  where: InputID
+}
+
+type deleteRolePayload {
+  role: UsersPermissionsRole
+}
+
+input deleteSatuanInput {
+  where: InputID
+}
+
+type deleteSatuanPayload {
+  satuan: Satuan
+}
+
+input deleteStateInput {
+  where: InputID
+}
+
+type deleteStatePayload {
+  state: State
+}
+
+input deleteUserInput {
+  where: InputID
+}
+
+type deleteUserPayload {
+  user: UsersPermissionsUser
+}
+
+input FileInput {
+  name: String!
+  hash: String!
+  sha256: String
+  ext: String
+  mime: String!
+  size: String!
+  url: String!
+  provider: String!
+  public_id: String
+  related: [ID]
+}
+
+type Indicator {
+  _id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  name: String
+  description: String
+  active: Boolean
+  state: State
+  target: Float
+  bagian: Bagian
+  operator: Operator
+  satuan: Satuan
+  counternames(sort: String, limit: Int, start: Int, where: JSON): [Countername]
+  rekaps(sort: String, limit: Int, start: Int, where: JSON): [Rekap]
+}
+
+type IndicatorAggregator {
+  count: Int
+  sum: IndicatorAggregatorSum
+  avg: IndicatorAggregatorAvg
+  min: IndicatorAggregatorMin
+  max: IndicatorAggregatorMax
+}
+
+type IndicatorAggregatorAvg {
+  target: Float
+}
+
+type IndicatorAggregatorMax {
+  target: Float
+}
+
+type IndicatorAggregatorMin {
+  target: Float
+}
+
+type IndicatorAggregatorSum {
+  target: Float
+}
+
+type IndicatorConnection {
+  values: [Indicator]
+  groupBy: IndicatorGroupBy
+  aggregate: IndicatorAggregator
+}
+
+type IndicatorConnection_id {
+  key: ID
+  connection: IndicatorConnection
+}
+
+type IndicatorConnectionActive {
+  key: Boolean
+  connection: IndicatorConnection
+}
+
+type IndicatorConnectionBagian {
+  key: ID
+  connection: IndicatorConnection
+}
+
+type IndicatorConnectionCreatedAt {
+  key: DateTime
+  connection: IndicatorConnection
+}
+
+type IndicatorConnectionDescription {
+  key: String
+  connection: IndicatorConnection
+}
+
+type IndicatorConnectionName {
+  key: String
+  connection: IndicatorConnection
+}
+
+type IndicatorConnectionOperator {
+  key: ID
+  connection: IndicatorConnection
+}
+
+type IndicatorConnectionSatuan {
+  key: ID
+  connection: IndicatorConnection
+}
+
+type IndicatorConnectionState {
+  key: ID
+  connection: IndicatorConnection
+}
+
+type IndicatorConnectionTarget {
+  key: Float
+  connection: IndicatorConnection
+}
+
+type IndicatorConnectionUpdatedAt {
+  key: DateTime
+  connection: IndicatorConnection
+}
+
+type IndicatorGroupBy {
+  _id: [IndicatorConnection_id]
+  createdAt: [IndicatorConnectionCreatedAt]
+  updatedAt: [IndicatorConnectionUpdatedAt]
+  name: [IndicatorConnectionName]
+  description: [IndicatorConnectionDescription]
+  active: [IndicatorConnectionActive]
+  state: [IndicatorConnectionState]
+  target: [IndicatorConnectionTarget]
+  bagian: [IndicatorConnectionBagian]
+  operator: [IndicatorConnectionOperator]
+  satuan: [IndicatorConnectionSatuan]
+}
+
+input IndicatorInput {
+  name: String
+  description: String
+  active: Boolean
+  state: ID
+  target: Float
+  bagian: ID
+  counternames: [ID]
+  operator: ID
+  satuan: ID
+  rekaps: [ID]
+}
+
+input InputID {
+  id: ID!
+}
+
+"""
+The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).
+"""
+scalar JSON
+
+type Menu {
+  _id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  nama: String
+  deskripsi: String
+  cover: UploadFile
+  url: String
+}
+
+type MenuAggregator {
+  count: Int
+}
+
+type MenuConnection {
+  values: [Menu]
+  groupBy: MenuGroupBy
+  aggregate: MenuAggregator
+}
+
+type MenuConnection_id {
+  key: ID
+  connection: MenuConnection
+}
+
+type MenuConnectionCover {
+  key: ID
+  connection: MenuConnection
+}
+
+type MenuConnectionCreatedAt {
+  key: DateTime
+  connection: MenuConnection
+}
+
+type MenuConnectionDeskripsi {
+  key: String
+  connection: MenuConnection
+}
+
+type MenuConnectionNama {
+  key: String
+  connection: MenuConnection
+}
+
+type MenuConnectionUpdatedAt {
+  key: DateTime
+  connection: MenuConnection
+}
+
+type MenuConnectionUrl {
+  key: String
+  connection: MenuConnection
+}
+
+type MenuGroupBy {
+  _id: [MenuConnection_id]
+  createdAt: [MenuConnectionCreatedAt]
+  updatedAt: [MenuConnectionUpdatedAt]
+  nama: [MenuConnectionNama]
+  deskripsi: [MenuConnectionDeskripsi]
+  cover: [MenuConnectionCover]
+  url: [MenuConnectionUrl]
+}
+
+input MenuInput {
+  nama: String
+  deskripsi: String
+  cover: ID
+  url: String
+}
+
+union Morph = UsersPermissionsMe | UsersPermissionsMeRole | Bagian | createBagianPayload | updateBagianPayload | deleteBagianPayload | BagianConnection | BagianAggregator | BagianGroupBy | BagianConnection_id | BagianConnectionCreatedAt | BagianConnectionUpdatedAt | BagianConnectionNama | Counter | createCounterPayload | updateCounterPayload | deleteCounterPayload | CounterConnection | CounterAggregator | CounterAggregatorSum | CounterAggregatorAvg | CounterAggregatorMin | CounterAggregatorMax | CounterGroupBy | CounterConnection_id | CounterConnectionCreatedAt | CounterConnectionUpdatedAt | CounterConnectionJumlah | CounterConnectionWaktu | CounterConnectionCountername | Countername | createCounternamePayload | updateCounternamePayload | deleteCounternamePayload | CounternameConnection | CounternameAggregator | CounternameGroupBy | CounternameConnection_id | CounternameConnectionCreatedAt | CounternameConnectionUpdatedAt | CounternameConnectionName | CounternameConnectionCountertype | CounternameConnectionIndicator | CounternameConnectionSatuan | Countertype | createCountertypePayload | updateCountertypePayload | deleteCountertypePayload | CountertypeConnection | CountertypeAggregator | CountertypeGroupBy | CountertypeConnection_id | CountertypeConnectionCreatedAt | CountertypeConnectionUpdatedAt | CountertypeConnectionName | Indicator | createIndicatorPayload | updateIndicatorPayload | deleteIndicatorPayload | IndicatorConnection | IndicatorAggregator | IndicatorAggregatorSum | IndicatorAggregatorAvg | IndicatorAggregatorMin | IndicatorAggregatorMax | IndicatorGroupBy | IndicatorConnection_id | IndicatorConnectionCreatedAt | IndicatorConnectionUpdatedAt | IndicatorConnectionName | IndicatorConnectionDescription | IndicatorConnectionActive | IndicatorConnectionState | IndicatorConnectionTarget | IndicatorConnectionBagian | IndicatorConnectionOperator | IndicatorConnectionSatuan | Menu | createMenuPayload | updateMenuPayload | deleteMenuPayload | MenuConnection | MenuAggregator | MenuGroupBy | MenuConnection_id | MenuConnectionCreatedAt | MenuConnectionUpdatedAt | MenuConnectionNama | MenuConnectionDeskripsi | MenuConnectionCover | MenuConnectionUrl | Operator | createOperatorPayload | updateOperatorPayload | deleteOperatorPayload | OperatorConnection | OperatorAggregator | OperatorGroupBy | OperatorConnection_id | OperatorConnectionCreatedAt | OperatorConnectionUpdatedAt | OperatorConnectionName | Rekap | createRekapPayload | updateRekapPayload | deleteRekapPayload | RekapConnection | RekapAggregator | RekapAggregatorSum | RekapAggregatorAvg | RekapAggregatorMin | RekapAggregatorMax | RekapGroupBy | RekapConnection_id | RekapConnectionCreatedAt | RekapConnectionUpdatedAt | RekapConnectionJumlah | RekapConnectionPeriode | RekapConnectionRekaptype | RekapConnectionIndicator | Satuan | createSatuanPayload | updateSatuanPayload | deleteSatuanPayload | SatuanConnection | SatuanAggregator | SatuanGroupBy | SatuanConnection_id | SatuanConnectionCreatedAt | SatuanConnectionUpdatedAt | SatuanConnectionName | State | createStatePayload | updateStatePayload | deleteStatePayload | StateConnection | StateAggregator | StateGroupBy | StateConnection_id | StateConnectionCreatedAt | StateConnectionUpdatedAt | StateConnectionName | Rekaptype | createRekaptypePayload | updateRekaptypePayload | deleteRekaptypePayload | RekaptypeConnection | RekaptypeAggregator | RekaptypeGroupBy | RekaptypeConnection_id | RekaptypeConnectionCreatedAt | RekaptypeConnectionUpdatedAt | RekaptypeConnectionPeriode | UploadFile | UploadFileConnection | UploadFileAggregator | UploadFileGroupBy | UploadFileConnection_id | UploadFileConnectionCreatedAt | UploadFileConnectionUpdatedAt | UploadFileConnectionName | UploadFileConnectionHash | UploadFileConnectionSha256 | UploadFileConnectionExt | UploadFileConnectionMime | UploadFileConnectionSize | UploadFileConnectionUrl | UploadFileConnectionProvider | UploadFileConnectionPublic_id | UsersPermissionsPermission | UsersPermissionsRole | createRolePayload | updateRolePayload | deleteRolePayload | UsersPermissionsRoleConnection | UsersPermissionsRoleAggregator | UsersPermissionsRoleGroupBy | UsersPermissionsRoleConnection_id | UsersPermissionsRoleConnectionName | UsersPermissionsRoleConnectionDescription | UsersPermissionsRoleConnectionType | UsersPermissionsUser | createUserPayload | updateUserPayload | deleteUserPayload | UsersPermissionsUserConnection | UsersPermissionsUserAggregator | UsersPermissionsUserGroupBy | UsersPermissionsUserConnection_id | UsersPermissionsUserConnectionUsername | UsersPermissionsUserConnectionEmail | UsersPermissionsUserConnectionProvider | UsersPermissionsUserConnectionConfirmed | UsersPermissionsUserConnectionBlocked | UsersPermissionsUserConnectionRole
+
+type Mutation {
+  createBagian(input: createBagianInput): createBagianPayload
+  updateBagian(input: updateBagianInput): updateBagianPayload
+  deleteBagian(input: deleteBagianInput): deleteBagianPayload
+  createCounter(input: createCounterInput): createCounterPayload
+  updateCounter(input: updateCounterInput): updateCounterPayload
+  deleteCounter(input: deleteCounterInput): deleteCounterPayload
+  createCountername(input: createCounternameInput): createCounternamePayload
+  updateCountername(input: updateCounternameInput): updateCounternamePayload
+  deleteCountername(input: deleteCounternameInput): deleteCounternamePayload
+  createCountertype(input: createCountertypeInput): createCountertypePayload
+  updateCountertype(input: updateCountertypeInput): updateCountertypePayload
+  deleteCountertype(input: deleteCountertypeInput): deleteCountertypePayload
+  createIndicator(input: createIndicatorInput): createIndicatorPayload
+  updateIndicator(input: updateIndicatorInput): updateIndicatorPayload
+  deleteIndicator(input: deleteIndicatorInput): deleteIndicatorPayload
+  createMenu(input: createMenuInput): createMenuPayload
+  updateMenu(input: updateMenuInput): updateMenuPayload
+  deleteMenu(input: deleteMenuInput): deleteMenuPayload
+  createOperator(input: createOperatorInput): createOperatorPayload
+  updateOperator(input: updateOperatorInput): updateOperatorPayload
+  deleteOperator(input: deleteOperatorInput): deleteOperatorPayload
+  createRekap(input: createRekapInput): createRekapPayload
+  updateRekap(input: updateRekapInput): updateRekapPayload
+  deleteRekap(input: deleteRekapInput): deleteRekapPayload
+  createSatuan(input: createSatuanInput): createSatuanPayload
+  updateSatuan(input: updateSatuanInput): updateSatuanPayload
+  deleteSatuan(input: deleteSatuanInput): deleteSatuanPayload
+  createState(input: createStateInput): createStatePayload
+  updateState(input: updateStateInput): updateStatePayload
+  deleteState(input: deleteStateInput): deleteStatePayload
+  createRekaptype(input: createRekaptypeInput): createRekaptypePayload
+  updateRekaptype(input: updateRekaptypeInput): updateRekaptypePayload
+  deleteRekaptype(input: deleteRekaptypeInput): deleteRekaptypePayload
+
+  """Create a new role"""
+  createRole(input: createRoleInput): createRolePayload
+
+  """Update an existing role"""
+  updateRole(input: updateRoleInput): updateRolePayload
+
+  """Delete an existing role"""
+  deleteRole(input: deleteRoleInput): deleteRolePayload
+  createUser(input: createUserInput): createUserPayload
+  updateUser(input: updateUserInput): updateUserPayload
+  deleteUser(input: deleteUserInput): deleteUserPayload
+  upload(refId: ID, ref: String, source: String, file: Upload!): UploadFile!
+}
+
+type Operator {
+  _id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  name: String
+  indicators(sort: String, limit: Int, start: Int, where: JSON): [Indicator]
+}
+
+type OperatorAggregator {
+  count: Int
+}
+
+type OperatorConnection {
+  values: [Operator]
+  groupBy: OperatorGroupBy
+  aggregate: OperatorAggregator
+}
+
+type OperatorConnection_id {
+  key: ID
+  connection: OperatorConnection
+}
+
+type OperatorConnectionCreatedAt {
+  key: DateTime
+  connection: OperatorConnection
+}
+
+type OperatorConnectionName {
+  key: String
+  connection: OperatorConnection
+}
+
+type OperatorConnectionUpdatedAt {
+  key: DateTime
+  connection: OperatorConnection
+}
+
+type OperatorGroupBy {
+  _id: [OperatorConnection_id]
+  createdAt: [OperatorConnectionCreatedAt]
+  updatedAt: [OperatorConnectionUpdatedAt]
+  name: [OperatorConnectionName]
+}
+
+input OperatorInput {
+  name: String
+  indicators: [ID]
+}
+
+type Query {
+  bagian(id: ID!): Bagian
+  bagians(sort: String, limit: Int, start: Int, where: JSON): [Bagian]
+  bagiansConnection(sort: String, limit: Int, start: Int, where: JSON): BagianConnection
+  counter(id: ID!): Counter
+  counters(sort: String, limit: Int, start: Int, where: JSON): [Counter]
+  countersConnection(sort: String, limit: Int, start: Int, where: JSON): CounterConnection
+  countername(id: ID!): Countername
+  counternames(sort: String, limit: Int, start: Int, where: JSON): [Countername]
+  counternamesConnection(sort: String, limit: Int, start: Int, where: JSON): CounternameConnection
+  countertype(id: ID!): Countertype
+  countertypes(sort: String, limit: Int, start: Int, where: JSON): [Countertype]
+  countertypesConnection(sort: String, limit: Int, start: Int, where: JSON): CountertypeConnection
+  indicator(id: ID!): Indicator
+  indicators(sort: String, limit: Int, start: Int, where: JSON): [Indicator]
+  indicatorsConnection(sort: String, limit: Int, start: Int, where: JSON): IndicatorConnection
+  menu(id: ID!): Menu
+  menus(sort: String, limit: Int, start: Int, where: JSON): [Menu]
+  menusConnection(sort: String, limit: Int, start: Int, where: JSON): MenuConnection
+  operator(id: ID!): Operator
+  operators(sort: String, limit: Int, start: Int, where: JSON): [Operator]
+  operatorsConnection(sort: String, limit: Int, start: Int, where: JSON): OperatorConnection
+  rekap(id: ID!): Rekap
+  rekaps(sort: String, limit: Int, start: Int, where: JSON): [Rekap]
+  rekapsConnection(sort: String, limit: Int, start: Int, where: JSON): RekapConnection
+  satuan(id: ID!): Satuan
+  satuans(sort: String, limit: Int, start: Int, where: JSON): [Satuan]
+  satuansConnection(sort: String, limit: Int, start: Int, where: JSON): SatuanConnection
+  state(id: ID!): State
+  states(sort: String, limit: Int, start: Int, where: JSON): [State]
+  statesConnection(sort: String, limit: Int, start: Int, where: JSON): StateConnection
+  rekaptype(id: ID!): Rekaptype
+  rekaptypes(sort: String, limit: Int, start: Int, where: JSON): [Rekaptype]
+  rekaptypesConnection(sort: String, limit: Int, start: Int, where: JSON): RekaptypeConnection
+  files(sort: String, limit: Int, start: Int, where: JSON): [UploadFile]
+  filesConnection(sort: String, limit: Int, start: Int, where: JSON): UploadFileConnection
+  role(id: ID!): UsersPermissionsRole
+
+  """
+  Retrieve all the existing roles. You can't apply filters on this query.
+  """
+  roles(sort: String, limit: Int, start: Int, where: JSON): [UsersPermissionsRole]
+  rolesConnection(sort: String, limit: Int, start: Int, where: JSON): UsersPermissionsRoleConnection
+  user(id: ID!): UsersPermissionsUser
+  users(sort: String, limit: Int, start: Int, where: JSON): [UsersPermissionsUser]
+  usersConnection(sort: String, limit: Int, start: Int, where: JSON): UsersPermissionsUserConnection
+  me: UsersPermissionsMe
+}
+
+type Rekap {
+  _id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  jumlah: Float
+  periode: String
+  rekaptype: Rekaptype
+  indicator: Indicator
+}
+
+type RekapAggregator {
+  count: Int
+  sum: RekapAggregatorSum
+  avg: RekapAggregatorAvg
+  min: RekapAggregatorMin
+  max: RekapAggregatorMax
+}
+
+type RekapAggregatorAvg {
+  jumlah: Float
+}
+
+type RekapAggregatorMax {
+  jumlah: Float
+}
+
+type RekapAggregatorMin {
+  jumlah: Float
+}
+
+type RekapAggregatorSum {
+  jumlah: Float
+}
+
+type RekapConnection {
+  values: [Rekap]
+  groupBy: RekapGroupBy
+  aggregate: RekapAggregator
+}
+
+type RekapConnection_id {
+  key: ID
+  connection: RekapConnection
+}
+
+type RekapConnectionCreatedAt {
+  key: DateTime
+  connection: RekapConnection
+}
+
+type RekapConnectionIndicator {
+  key: ID
+  connection: RekapConnection
+}
+
+type RekapConnectionJumlah {
+  key: Float
+  connection: RekapConnection
+}
+
+type RekapConnectionPeriode {
+  key: String
+  connection: RekapConnection
+}
+
+type RekapConnectionRekaptype {
+  key: ID
+  connection: RekapConnection
+}
+
+type RekapConnectionUpdatedAt {
+  key: DateTime
+  connection: RekapConnection
+}
+
+type RekapGroupBy {
+  _id: [RekapConnection_id]
+  createdAt: [RekapConnectionCreatedAt]
+  updatedAt: [RekapConnectionUpdatedAt]
+  jumlah: [RekapConnectionJumlah]
+  periode: [RekapConnectionPeriode]
+  rekaptype: [RekapConnectionRekaptype]
+  indicator: [RekapConnectionIndicator]
+}
+
+input RekapInput {
+  jumlah: Float
+  periode: String
+  rekaptype: ID
+  indicator: ID
+}
+
+type Rekaptype {
+  _id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  periode: String
+  rekaps(sort: String, limit: Int, start: Int, where: JSON): [Rekap]
+}
+
+type RekaptypeAggregator {
+  count: Int
+}
+
+type RekaptypeConnection {
+  values: [Rekaptype]
+  groupBy: RekaptypeGroupBy
+  aggregate: RekaptypeAggregator
+}
+
+type RekaptypeConnection_id {
+  key: ID
+  connection: RekaptypeConnection
+}
+
+type RekaptypeConnectionCreatedAt {
+  key: DateTime
+  connection: RekaptypeConnection
+}
+
+type RekaptypeConnectionPeriode {
+  key: String
+  connection: RekaptypeConnection
+}
+
+type RekaptypeConnectionUpdatedAt {
+  key: DateTime
+  connection: RekaptypeConnection
+}
+
+type RekaptypeGroupBy {
+  _id: [RekaptypeConnection_id]
+  createdAt: [RekaptypeConnectionCreatedAt]
+  updatedAt: [RekaptypeConnectionUpdatedAt]
+  periode: [RekaptypeConnectionPeriode]
+}
+
+input RekaptypeInput {
+  periode: String
+  rekaps: [ID]
+}
+
+input RoleInput {
+  name: String!
+  description: String
+  type: String
+  permissions: [ID]
+  users: [ID]
+}
+
+type Satuan {
+  _id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  name: String
+  indicators(sort: String, limit: Int, start: Int, where: JSON): [Indicator]
+  counternames(sort: String, limit: Int, start: Int, where: JSON): [Countername]
+}
+
+type SatuanAggregator {
+  count: Int
+}
+
+type SatuanConnection {
+  values: [Satuan]
+  groupBy: SatuanGroupBy
+  aggregate: SatuanAggregator
+}
+
+type SatuanConnection_id {
+  key: ID
+  connection: SatuanConnection
+}
+
+type SatuanConnectionCreatedAt {
+  key: DateTime
+  connection: SatuanConnection
+}
+
+type SatuanConnectionName {
+  key: String
+  connection: SatuanConnection
+}
+
+type SatuanConnectionUpdatedAt {
+  key: DateTime
+  connection: SatuanConnection
+}
+
+type SatuanGroupBy {
+  _id: [SatuanConnection_id]
+  createdAt: [SatuanConnectionCreatedAt]
+  updatedAt: [SatuanConnectionUpdatedAt]
+  name: [SatuanConnectionName]
+}
+
+input SatuanInput {
+  name: String
+  indicators: [ID]
+  counternames: [ID]
+}
+
+type State {
+  _id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  name: String
+  indicators(sort: String, limit: Int, start: Int, where: JSON): [Indicator]
+}
+
+type StateAggregator {
+  count: Int
+}
+
+type StateConnection {
+  values: [State]
+  groupBy: StateGroupBy
+  aggregate: StateAggregator
+}
+
+type StateConnection_id {
+  key: ID
+  connection: StateConnection
+}
+
+type StateConnectionCreatedAt {
+  key: DateTime
+  connection: StateConnection
+}
+
+type StateConnectionName {
+  key: String
+  connection: StateConnection
+}
+
+type StateConnectionUpdatedAt {
+  key: DateTime
+  connection: StateConnection
+}
+
+type StateGroupBy {
+  _id: [StateConnection_id]
+  createdAt: [StateConnectionCreatedAt]
+  updatedAt: [StateConnectionUpdatedAt]
+  name: [StateConnectionName]
+}
+
+input StateInput {
+  name: String
+  indicators: [ID]
+}
+
+input updateBagianInput {
+  where: InputID
+  data: BagianInput
+}
+
+type updateBagianPayload {
+  bagian: Bagian
+}
+
+input updateCounterInput {
+  where: InputID
+  data: CounterInput
+}
+
+input updateCounternameInput {
+  where: InputID
+  data: CounternameInput
+}
+
+type updateCounternamePayload {
+  countername: Countername
+}
+
+type updateCounterPayload {
+  counter: Counter
+}
+
+input updateCountertypeInput {
+  where: InputID
+  data: CountertypeInput
+}
+
+type updateCountertypePayload {
+  countertype: Countertype
+}
+
+input updateIndicatorInput {
+  where: InputID
+  data: IndicatorInput
+}
+
+type updateIndicatorPayload {
+  indicator: Indicator
+}
+
+input updateMenuInput {
+  where: InputID
+  data: MenuInput
+}
+
+type updateMenuPayload {
+  menu: Menu
+}
+
+input updateOperatorInput {
+  where: InputID
+  data: OperatorInput
+}
+
+type updateOperatorPayload {
+  operator: Operator
+}
+
+input updateRekapInput {
+  where: InputID
+  data: RekapInput
+}
+
+type updateRekapPayload {
+  rekap: Rekap
+}
+
+input updateRekaptypeInput {
+  where: InputID
+  data: RekaptypeInput
+}
+
+type updateRekaptypePayload {
+  rekaptype: Rekaptype
+}
+
+input updateRoleInput {
+  where: InputID
+  data: RoleInput
+}
+
+type updateRolePayload {
+  role: UsersPermissionsRole
+}
+
+input updateSatuanInput {
+  where: InputID
+  data: SatuanInput
+}
+
+type updateSatuanPayload {
+  satuan: Satuan
+}
+
+input updateStateInput {
+  where: InputID
+  data: StateInput
+}
+
+type updateStatePayload {
+  state: State
+}
+
+input updateUserInput {
+  where: InputID
+  data: UserInput
+}
+
+type updateUserPayload {
+  user: UsersPermissionsUser
+}
+
+"""The `Upload` scalar type represents a file upload."""
+scalar Upload
+
+type UploadFile {
+  _id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  name: String!
+  hash: String!
+  sha256: String
+  ext: String
+  mime: String!
+  size: String!
+  url: String!
+  provider: String!
+  public_id: String
+  related(sort: String, limit: Int, start: Int, where: JSON): [Morph]
+}
+
+type UploadFileAggregator {
+  count: Int
+}
+
+type UploadFileConnection {
+  values: [UploadFile]
+  groupBy: UploadFileGroupBy
+  aggregate: UploadFileAggregator
+}
+
+type UploadFileConnection_id {
+  key: ID
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionCreatedAt {
+  key: DateTime
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionExt {
+  key: String
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionHash {
+  key: String
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionMime {
+  key: String
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionName {
+  key: String
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionProvider {
+  key: String
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionPublic_id {
+  key: String
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionSha256 {
+  key: String
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionSize {
+  key: String
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionUpdatedAt {
+  key: DateTime
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionUrl {
+  key: String
+  connection: UploadFileConnection
+}
+
+type UploadFileGroupBy {
+  _id: [UploadFileConnection_id]
+  createdAt: [UploadFileConnectionCreatedAt]
+  updatedAt: [UploadFileConnectionUpdatedAt]
+  name: [UploadFileConnectionName]
+  hash: [UploadFileConnectionHash]
+  sha256: [UploadFileConnectionSha256]
+  ext: [UploadFileConnectionExt]
+  mime: [UploadFileConnectionMime]
+  size: [UploadFileConnectionSize]
+  url: [UploadFileConnectionUrl]
+  provider: [UploadFileConnectionProvider]
+  public_id: [UploadFileConnectionPublic_id]
+}
+
+input UserInput {
+  username: String!
+  email: String!
+  provider: String
+  confirmed: Boolean
+  blocked: Boolean
+  role: ID
+}
+
+type UsersPermissionsMe {
+  _id: ID!
+  username: String!
+  email: String!
+  confirmed: Boolean
+  blocked: Boolean
+  role: UsersPermissionsMeRole
+}
+
+type UsersPermissionsMeRole {
+  _id: ID!
+  name: String!
+  description: String
+  type: String
+}
+
+type UsersPermissionsPermission {
+  _id: ID!
+  type: String!
+  controller: String!
+  action: String!
+  enabled: Boolean!
+  policy: String
+  role: UsersPermissionsRole
+}
+
+type UsersPermissionsRole {
+  _id: ID!
+  name: String!
+  description: String
+  type: String
+  permissions(sort: String, limit: Int, start: Int, where: JSON): [UsersPermissionsPermission]
+  users(sort: String, limit: Int, start: Int, where: JSON): [UsersPermissionsUser]
+}
+
+type UsersPermissionsRoleAggregator {
+  count: Int
+}
+
+type UsersPermissionsRoleConnection {
+  values: [UsersPermissionsRole]
+  groupBy: UsersPermissionsRoleGroupBy
+  aggregate: UsersPermissionsRoleAggregator
+}
+
+type UsersPermissionsRoleConnection_id {
+  key: ID
+  connection: UsersPermissionsRoleConnection
+}
+
+type UsersPermissionsRoleConnectionDescription {
+  key: String
+  connection: UsersPermissionsRoleConnection
+}
+
+type UsersPermissionsRoleConnectionName {
+  key: String
+  connection: UsersPermissionsRoleConnection
+}
+
+type UsersPermissionsRoleConnectionType {
+  key: String
+  connection: UsersPermissionsRoleConnection
+}
+
+type UsersPermissionsRoleGroupBy {
+  _id: [UsersPermissionsRoleConnection_id]
+  name: [UsersPermissionsRoleConnectionName]
+  description: [UsersPermissionsRoleConnectionDescription]
+  type: [UsersPermissionsRoleConnectionType]
+}
+
+type UsersPermissionsUser {
+  _id: ID!
+  username: String!
+  email: String!
+  provider: String
+  confirmed: Boolean
+  blocked: Boolean
+  role: UsersPermissionsRole
+}
+
+type UsersPermissionsUserAggregator {
+  count: Int
+}
+
+type UsersPermissionsUserConnection {
+  values: [UsersPermissionsUser]
+  groupBy: UsersPermissionsUserGroupBy
+  aggregate: UsersPermissionsUserAggregator
+}
+
+type UsersPermissionsUserConnection_id {
+  key: ID
+  connection: UsersPermissionsUserConnection
+}
+
+type UsersPermissionsUserConnectionBlocked {
+  key: Boolean
+  connection: UsersPermissionsUserConnection
+}
+
+type UsersPermissionsUserConnectionConfirmed {
+  key: Boolean
+  connection: UsersPermissionsUserConnection
+}
+
+type UsersPermissionsUserConnectionEmail {
+  key: String
+  connection: UsersPermissionsUserConnection
+}
+
+type UsersPermissionsUserConnectionProvider {
+  key: String
+  connection: UsersPermissionsUserConnection
+}
+
+type UsersPermissionsUserConnectionRole {
+  key: ID
+  connection: UsersPermissionsUserConnection
+}
+
+type UsersPermissionsUserConnectionUsername {
+  key: String
+  connection: UsersPermissionsUserConnection
+}
+
+type UsersPermissionsUserGroupBy {
+  _id: [UsersPermissionsUserConnection_id]
+  username: [UsersPermissionsUserConnectionUsername]
+  email: [UsersPermissionsUserConnectionEmail]
+  provider: [UsersPermissionsUserConnectionProvider]
+  confirmed: [UsersPermissionsUserConnectionConfirmed]
+  blocked: [UsersPermissionsUserConnectionBlocked]
+  role: [UsersPermissionsUserConnectionRole]
+}

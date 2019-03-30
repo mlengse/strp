@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/countertypes",
+      "handler": "Countertype.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/countertypes/count",
+      "handler": "Countertype.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/countertypes/:_id",
+      "handler": "Countertype.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/countertypes",
+      "handler": "Countertype.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/countertypes/:_id",
+      "handler": "Countertype.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/countertypes/:_id",
+      "handler": "Countertype.destroy",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

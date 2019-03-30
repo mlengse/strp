@@ -1,0 +1,34 @@
+{
+  "connection": "default",
+  "collectionName": "countername",
+  "info": {
+    "name": "countername",
+    "description": ""
+  },
+  "options": {
+    "timestamps": true
+  },
+  "attributes": {
+    "name": {
+      "default": "",
+      "type": "string"
+    },
+    "countertype": {
+      "model": "countertype",
+      "via": "counternames"
+    },
+    "indicator": {
+      "model": "indicator",
+      "via": "counternames",
+      "dominant": true
+    },
+    "counters": {
+      "collection": "counter",
+      "via": "countername"
+    },
+    "satuan": {
+      "model": "satuan",
+      "via": "counternames"
+    }
+  }
+}

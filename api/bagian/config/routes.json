@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/bagians",
+      "handler": "Bagian.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/bagians/count",
+      "handler": "Bagian.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/bagians/:_id",
+      "handler": "Bagian.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/bagians",
+      "handler": "Bagian.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/bagians/:_id",
+      "handler": "Bagian.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/bagians/:_id",
+      "handler": "Bagian.destroy",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

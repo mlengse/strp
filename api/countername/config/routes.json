@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/counternames",
+      "handler": "Countername.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/counternames/count",
+      "handler": "Countername.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/counternames/:_id",
+      "handler": "Countername.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/counternames",
+      "handler": "Countername.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/counternames/:_id",
+      "handler": "Countername.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/counternames/:_id",
+      "handler": "Countername.destroy",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

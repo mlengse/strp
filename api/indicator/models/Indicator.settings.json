@@ -1,0 +1,53 @@
+{
+  "connection": "default",
+  "collectionName": "indicator",
+  "info": {
+    "name": "indicator",
+    "description": ""
+  },
+  "options": {
+    "timestamps": true
+  },
+  "attributes": {
+    "name": {
+      "default": "",
+      "type": "string"
+    },
+    "description": {
+      "default": "",
+      "type": "text"
+    },
+    "active": {
+      "default": false,
+      "type": "boolean"
+    },
+    "state": {
+      "model": "state",
+      "via": "indicators"
+    },
+    "target": {
+      "default": "",
+      "type": "decimal"
+    },
+    "bagian": {
+      "model": "bagian",
+      "via": "indicators"
+    },
+    "counternames": {
+      "collection": "countername",
+      "via": "indicator"
+    },
+    "operator": {
+      "model": "operator",
+      "via": "indicators"
+    },
+    "satuan": {
+      "model": "satuan",
+      "via": "indicators"
+    },
+    "rekaps": {
+      "collection": "rekap",
+      "via": "indicator"
+    }
+  }
+}

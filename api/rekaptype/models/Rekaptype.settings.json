@@ -1,0 +1,21 @@
+{
+  "connection": "default",
+  "collectionName": "",
+  "info": {
+    "name": "rekaptype",
+    "description": ""
+  },
+  "options": {
+    "timestamps": true
+  },
+  "attributes": {
+    "periode": {
+      "default": "",
+      "type": "string"
+    },
+    "rekaps": {
+      "collection": "rekap",
+      "via": "rekaptype"
+    }
+  }
+}
